@@ -1,22 +1,30 @@
-
-
+@login_tag
 Feature: Login functionality
-      #(Optional)#
-        As an authorized user i should be able to login.
-  #teacher, student, team_lead#
 
-  Scenario : Teacher Login
+
+  @student @wip
+  Scenario: Student Login
     Given user is on the login page
-    Then user enters teacher username
-    And user enters teacher password
+    Then user enters username: 'student_username'
+    Then user enters password: 'student_password'
     When user clicks sign in button
     Then the page title must be correct
+    Then 4 menu options are shown
 
-#    Scenario: Student Login
-#      Given user is on the login page
-#      Then user enters student username
-#      And user enters student password
-#      When user clicks sign in button
-#      Then the page title must be correct
+    @teacher
+  Scenario: Teacher Login
+    Given user is on the login page
+    Then user enters username: 'teacher_username'
+    Then user enters password: 'teacher_password'
+    When user clicks sign in button
+    Then the page title must be correct
+      Then 4 menu options are shown
 
-
+ @teamLead
+  Scenario: Team Lead Login
+    Given user is on the login page
+    Then user enters username: 'teamlead_username'
+    Then user enters password: 'teamlead_password'
+    When user clicks sign in button
+    Then the page title must be correct
+   Then 4 menu options are shown
